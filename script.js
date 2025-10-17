@@ -42,3 +42,64 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+const aboutBtn = document.getElementById('aboutMeBtn');
+const modal = document.getElementById('aboutModal');
+const closeBtn = document.querySelector('.close-btn');
+
+// Open modal function
+function openModal() {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Close modal function
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Event listeners
+aboutBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+
+// Close modal when clicking outside
+modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+    }
+});
+
+
+// Smooth animation for tech tags
+document.addEventListener('DOMContentLoaded', function() {
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach((tag, index) => {
+        tag.style.animationDelay = `${index * 0.1}s`;
+        tag.classList.add('tag-animate');
+    });
+});
+
+// Add CSS animation class
+const style = document.createElement('style');
+style.textContent = `
+    .tag-animate {
+        animation: tagSlideIn 0.5s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    @keyframes tagSlideIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(style);
