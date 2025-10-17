@@ -23,8 +23,6 @@ html{
 }
 
 
-
-
 .modal {
     display: none;
     position: fixed;
@@ -203,3 +201,24 @@ html{
         transform: translateY(0);
     }
 }
+
+@media (max-width: 760px){
+    .illustration{
+        display: none;
+    }
+}
+
+.illustration{
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media(max-width:1000px){
+    .illustration .coder-img {
+        width: 60%;
+        min-width: 270px;
+    }
+}
+
